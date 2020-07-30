@@ -9,8 +9,8 @@ public class AgentScript : MonoBehaviour
 
     public int hp=100;
 
-    public int speed;   //how fastthis agent moves
-    public int viewRange; //the range in which this agent will see an anemy ang begin to fight
+    public int speed;   //how fast this agent moves
+    public int viewRange; //the range in which this agent will see an anemy and begin to fight
     public int dps; //how much damage this agent deals per second
 
     GameControl GC; //GC has lists of every alive agent
@@ -105,7 +105,7 @@ public class AgentScript : MonoBehaviour
         hp -= damage;
         if (hp < 1)
         {
-            targetDead = true; //we send out tho the shooter that this target is dead so it doesnt waste time shooting dying body
+            targetDead = true; //we send out so the shooter knoes his target is dead so it doesnt waste time shooting dying body
             StartCoroutine(Death());
         }        
     } 
@@ -119,7 +119,7 @@ public class AgentScript : MonoBehaviour
 
         GC.checkTheEnd(); //and check if this one was the last one alive
 
-        //disable components so they won't let us go through the floor
+        //disable components as they won't let us to go through the floor
         gameObject.GetComponent<SphereCollider>().enabled = false;
         Nav.enabled = false;
 
